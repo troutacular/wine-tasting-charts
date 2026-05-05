@@ -58,7 +58,7 @@ export default function App() {
 
       <div className="flex-1 p-6 space-y-6">
         <h1 className="text-2xl font-bold capitalize">
-          {selectedWine || "Select a wine"}
+          {selectedWine || "Wine Aromas"}
         </h1>
 
         {aromaCategories.map((category) => (

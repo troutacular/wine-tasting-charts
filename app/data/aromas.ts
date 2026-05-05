@@ -30,7 +30,9 @@ export const aromaNodes: AromaNode[] = [
   { id: "herbaceous", name: "Herbaceous", type: "category" },
 
   // --- Subcategories ---
-  { id: "flowers", name: "Flowers", type: "subcategory", parent: "floral" },
+
+  // --- Floral is just one root category
+  // { id: "floral", name: "floral", type: "subcategory", parent: "floral" },
 
   { id: "citrus", name: "Citrus", type: "subcategory", parent: "fruity" },
   { id: "tree-fruit", name: "Tree Fruit", type: "subcategory", parent: "fruity" },
@@ -75,25 +77,25 @@ export const aromaNodes: AromaNode[] = [
   // --- Aromoas: sorted
 
   // --- Floral
-  { id: "acacia-flower", name: "Acacia Flower", type: "aroma", parent: "flowers", wines: ["white", "sparkling"] },
-  { id: "bergamot", name: "Bergamot", type: "aroma", parent: "flowers", wines: ["red", "white"] },
-  { id: "chamomile", name: "Chamomile", type: "aroma", parent: "flowers", wines: ["white", "sparkling"] },
-  { id: "daffodil", name: "Daffodil", type: "aroma", parent: "flowers", wines: ["white"] },
-  { id: "elderflower", name: "Elderflower", type: "aroma", parent: "flowers", wines: ["white", "sparkling"] },
-  { id: "geranium", name: "Geranium", type: "aroma", parent: "flowers", wines: ["white", "sparkling"] },
-  { id: "hibiscus", name: "Hibiscus", type: "aroma", parent: "flowers", wines: ["red", "sparkling", "rose"] },
-  { id: "honeysuckle", name: "Honeysuckle", type: "aroma", parent: "flowers", wines: ["white", "sparkling", "rose"] },
-  { id: "iris", name: "Iris", type: "aroma", parent: "flowers", wines: ["red"] },
-  { id: "jasmine", name: "Jasmine", type: "aroma", parent: "flowers", wines: ["white", "sparkling"] },
-  { id: "lavender", name: "Lavender", type: "aroma", parent: "flowers", wines: ["red", "white", "sparkling", "rose"] },
-  { id: "lilac", name: "lLilac", type: "aroma", parent: "flowers", wines: ["red"] },
-  { id: "lily", name: "Lily", type: "aroma", parent: "flowers", wines: ["white", "sparkling"] },
-  { id: "orange-blossom", name: "Orange Blossom", type: "aroma", parent: "flowers", wines: ["white", "sparkling", "rose"] },
-  { id: "peony", name: "Peony", type: "aroma", parent: "flowers", wines: ["red", "white"] },
-  { id: "potpourri", name: "Potpourri", type: "aroma", parent: "flowers", wines: ["white"] },
-  { id: "rhubarb", name: "Rhubarb", type: "aroma", parent: "flowers", wines: ["red", "sparkling"] },
-  { id: "rose", name: "Rose", type: "aroma", parent: "flowers", wines: ["red", "white", "sparkling", "rose"] },
-  { id: "violet", name: "Violet", type: "aroma", parent: "flowers", wines: ["red", "white", "rose"] },
+  { id: "acacia-flower", name: "Acacia Flower", type: "aroma", parent: "floral", wines: ["white", "sparkling"] },
+  { id: "bergamot", name: "Bergamot", type: "aroma", parent: "floral", wines: ["red", "white"] },
+  { id: "chamomile", name: "Chamomile", type: "aroma", parent: "floral", wines: ["white", "sparkling"] },
+  { id: "daffodil", name: "Daffodil", type: "aroma", parent: "floral", wines: ["white"] },
+  { id: "elderflower", name: "Elderflower", type: "aroma", parent: "floral", wines: ["white", "sparkling"] },
+  { id: "geranium", name: "Geranium", type: "aroma", parent: "floral", wines: ["white", "sparkling"] },
+  { id: "hibiscus", name: "Hibiscus", type: "aroma", parent: "floral", wines: ["red", "sparkling", "rose"] },
+  { id: "honeysuckle", name: "Honeysuckle", type: "aroma", parent: "floral", wines: ["white", "sparkling", "rose"] },
+  { id: "iris", name: "Iris", type: "aroma", parent: "floral", wines: ["red"] },
+  { id: "jasmine", name: "Jasmine", type: "aroma", parent: "floral", wines: ["white", "sparkling"] },
+  { id: "lavender", name: "Lavender", type: "aroma", parent: "floral", wines: ["red", "white", "sparkling", "rose"] },
+  { id: "lilac", name: "Lilac", type: "aroma", parent: "floral", wines: ["red"] },
+  { id: "lily", name: "Lily", type: "aroma", parent: "floral", wines: ["white", "sparkling"] },
+  { id: "orange-blossom", name: "Orange Blossom", type: "aroma", parent: "floral", wines: ["white", "sparkling", "rose"] },
+  { id: "peony", name: "Peony", type: "aroma", parent: "floral", wines: ["red", "white"] },
+  { id: "potpourri", name: "Potpourri", type: "aroma", parent: "floral", wines: ["white"] },
+  { id: "rhubarb", name: "Rhubarb", type: "aroma", parent: "floral", wines: ["red", "sparkling"] },
+  { id: "rose", name: "Rose", type: "aroma", parent: "floral", wines: ["red", "white", "sparkling", "rose"] },
+  { id: "violet", name: "Violet", type: "aroma", parent: "floral", wines: ["red", "white", "rose"] },
 
   // --- Fruity: Citrus
   { id: "blood-orange", name: "Blood Orange", type: "aroma", parent: "citrus", wines: ["red","sparkling","rose"]},

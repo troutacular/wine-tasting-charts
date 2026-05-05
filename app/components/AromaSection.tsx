@@ -14,12 +14,13 @@ export default function AromaSection({
   return (
     <div className="card bg-base-100 p-4 shadow">
       <h2 className="text-xl font-semibold capitalize">{title}</h2>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       {groups.map(({ subcategory, aromas }) => (
         <section key={subcategory.id} className="mt-4">
           <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-base-content/70">
             {subcategory.name}
           </h3>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="">
             {aromas.map((aroma) => (
               <label key={aroma.id} className="flex items-center gap-2">
                 <input
@@ -34,6 +35,7 @@ export default function AromaSection({
           </div>
         </section>
       ))}
+      </div>
     </div>
   );
 }
