@@ -43,6 +43,50 @@ const countryOptions = [
   "US",
 ];
 
+interface AppearanceField {
+  id: string;
+  label: string;
+  labels: string[];
+}
+
+const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
+  red: [
+    {
+      id: "red-color",
+      label: "Color",
+      labels: ["Purple", "Ruby", "Garnet", "Tawny"],
+    },
+  ],
+  white: [
+    {
+      id: "white-color",
+      label: "Color",
+      labels: ["Lemon-green", "Lemon", "Gold", "Amber", "Brown"],
+    },
+  ],
+  sparkling: [
+    {
+      id: "sparkling-color",
+      label: "Color",
+      labels: ["Lemon", "Gold", "Amber", "Rosé"],
+    },
+  ],
+  rose: [
+    {
+      id: "rose-color",
+      label: "Color",
+      labels: ["Pink", "Salmon", "Orange", "Copper"],
+    },
+  ],
+};
+
+const wineTypeLabels: Record<WineType, string> = {
+  red: "Red",
+  white: "White",
+  sparkling: "Sparkling",
+  rose: "Rosé",
+};
+
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [selectedWine, setSelectedWine] = useState<WineType | null>(null);
@@ -50,6 +94,7 @@ export default function App() {
     createDefaultTastingDetails
   );
   const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [appearance, setAppearance] = useState<Record<string, number>>({});
   const [palate, setPalate] = useState<Record<string, number>>({});
   const [conclusion, setConclusion] = useState<Record<string, number>>({});
 
@@ -63,6 +108,7 @@ export default function App() {
         ...(parsed.tastingDetails || {}),
       });
       setChecked(parsed.checked || {});
+      setAppearance(parsed.appearance || {});
       setPalate(parsed.palate || {});
       setConclusion(parsed.conclusion || {});
     }
@@ -75,11 +121,12 @@ export default function App() {
         selectedWine,
         tastingDetails,
         checked,
+        appearance,
         palate,
         conclusion,
       })
     );
-  }, [selectedWine, tastingDetails, checked, palate, conclusion]);
+  }, [selectedWine, tastingDetails, checked, appearance, palate, conclusion]);
 
   const updateTastingDetails = <Key extends keyof TastingDetails>(
     key: Key,
@@ -97,6 +144,7 @@ export default function App() {
     setSelectedWine(null);
     setTastingDetails(createDefaultTastingDetails());
     setChecked({});
+    setAppearance({});
     setPalate({});
     setConclusion({});
   };
@@ -170,6 +218,34 @@ export default function App() {
               />
             </label>
           </div>
+        </Card>
+
+        <Card
+          title={
+            selectedWine
+              ? `Appearance - ${wineTypeLabels[selectedWine]}`
+              : "Appearance"
+          }
+        >
+          {selectedWine ? (
+            appearanceFieldsByWine[selectedWine].map((field) => (
+              <Slider
+                key={field.id}
+                label={field.label}
+                min={0}
+                max={field.labels.length - 1}
+                value={appearance[field.id] || 0}
+                labels={field.labels}
+                onChange={(v) =>
+                  setAppearance({ ...appearance, [field.id]: v })
+                }
+              />
+            ))
+          ) : (
+            <p className="text-sm text-base-content/70">
+              Select a wine type to show appearance options.
+            </p>
+          )}
         </Card>
 
         <Card title="Nose">
