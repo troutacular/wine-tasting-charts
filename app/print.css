@@ -1,0 +1,53 @@
+@media print {
+  @page {
+    margin: 0.5in;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .app-sidebar,
+  .print-hidden {
+    display: none !important;
+  }
+
+  .aroma-section:not(:has(.aroma-checkbox:checked)),
+  .aroma-subcategory:not(:has(.aroma-checkbox:checked)),
+  .aroma-option:not(:has(.aroma-checkbox:checked)) {
+    display: none !important;
+  }
+
+  .aroma-section {
+    break-inside: avoid;
+    background: white !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .aroma-groups {
+    display: block !important;
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+
+  .aroma-subcategory {
+    break-inside: avoid;
+    margin: 0.75rem 0 0 !important;
+  }
+
+  .aroma-checkbox {
+    display: none !important;
+  }
+
+  .aroma-option {
+    break-inside: avoid;
+    gap: 0 !important;
+  }
+
+  .aroma-option::before {
+    content: "-";
+    margin-right: 0.35rem;
+  }
+}
