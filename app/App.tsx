@@ -162,7 +162,7 @@ export default function App() {
 
       <div className="flex-1 p-6 space-y-6">
         <h1 className="text-2xl font-bold capitalize">
-          {selectedWine || "Wine Aromas"}
+          {selectedWine || "Wine Tasting Notes"}
         </h1>
 
         <Card title="Wine Details">
