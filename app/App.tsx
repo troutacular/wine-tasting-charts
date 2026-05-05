@@ -235,7 +235,7 @@ export default function App() {
           )}
         </Card>
 
-        <div className="flex gap-4">
+        <div className="print-hidden flex gap-4">
           <button className="btn btn-primary" onClick={printPDF}>
             Print PDF
           </button>

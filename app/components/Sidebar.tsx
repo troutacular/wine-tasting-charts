@@ -13,7 +13,7 @@ export default function Sidebar({
 }) {
   return (
     <div
-      className={`bg-base-100 shadow-lg transition-all ${
+      className={`app-sidebar bg-base-100 shadow-lg transition-all ${
         open ? "w-64" : "w-16"
       }`}
     >

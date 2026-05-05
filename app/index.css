@@ -1,3 +1,4 @@
 @import "tailwindcss";
+@import "./print.css";
 @plugin "../node_modules/daisyui/index.js";
 @source "./**/*.{ts,tsx}";
