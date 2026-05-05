@@ -13,13 +13,13 @@ export default function AromaSection({
 }) {
   return (
     <div className="card bg-base-100 p-4 shadow">
-      <h2 className="text-xl font-semibold capitalize">{title}</h2>
+      <h3 className="text-xl font-semibold capitalize">{title}</h3>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       {groups.map(({ subcategory, aromas }) => (
         <section key={subcategory.id} className="mt-4">
-          <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-base-content/70">
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-base-content/70">
             {subcategory.name}
-          </h3>
+          </h4>
           <div className="">
             {aromas.map((aroma) => (
               <label key={aroma.id} className="flex items-center gap-2">
