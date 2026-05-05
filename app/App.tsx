@@ -31,6 +31,18 @@ const createDefaultTastingDetails = (): TastingDetails => ({
   price: "",
 });
 
+const countryOptions = [
+  "Argentina",
+  "Australia",
+  "Chile",
+  "France",
+  "Italy",
+  "New Zealand",
+  "South Africa",
+  "Spain",
+  "US",
+];
+
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [selectedWine, setSelectedWine] = useState<WineType | null>(null);
@@ -131,14 +143,20 @@ export default function App() {
             </label>
             <label className="form-control">
               <span className="label-text mb-1">Country</span>
-              <input
-                type="text"
-                className="input input-bordered w-full"
+              <select
+                className="select select-bordered w-full"
                 value={tastingDetails.country}
                 onChange={(event) =>
                   updateTastingDetails("country", event.target.value)
                 }
-              />
+              >
+                <option value="">Select a country</option>
+                {countryOptions.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
             </label>
             <label className="form-control">
               <span className="label-text mb-1">Price</span>
