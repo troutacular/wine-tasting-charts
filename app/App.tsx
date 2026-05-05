@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 import AromaSection from "./components/AromaSection";
 import Card from "./components/Card";
 import Slider from "./components/Slider";
-import { aromaCategories, getAromasByCategory } from "./data/aromas";
+import { aromaCategories, getAromaGroupsByCategory } from "./data/aromas";
 import type { WineType } from "./data/aromas";
 
 const STORAGE_KEY = "wine-app-state";
@@ -65,7 +65,7 @@ export default function App() {
           <AromaSection
             key={category.id}
             title={category.name}
-            aromas={getAromasByCategory(
+            groups={getAromaGroupsByCategory(
               category.id,
               selectedWine || undefined
             )}

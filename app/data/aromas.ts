@@ -12,6 +12,11 @@ export interface AromaNode {
   wines?: WineType[];
 }
 
+export interface AromaGroup {
+  subcategory: AromaNode;
+  aromas: AromaNode[];
+}
+
 export const aromaNodes: AromaNode[] = [
   // --- Categories ---
   { id: "floral", name: "Floral", type: "category" },
@@ -350,25 +355,49 @@ export const aromaCategories: AromaNode[] = aromaNodes.filter(
   (node) => node.type === "category"
 );
 
+const wineMatches = (node: AromaNode, wine?: WineType): boolean =>
+  wine ? node.wines?.includes(wine) ?? false : true;
+
+export const getAromaGroupsByCategory = (
+  categoryId: string,
+  wine?: WineType
+): AromaGroup[] => {
+  const category = aromaNodes.find(
+    (node) => node.id === categoryId && node.type === "category"
+  );
+  const subcategories = aromaNodes.filter(
+    (node) => node.parent === categoryId && node.type === "subcategory"
+  );
+
+  const groups = subcategories
+    .map((subcategory) => ({
+      subcategory,
+      aromas: aromaNodes.filter(
+        (node) =>
+          node.type === "aroma" &&
+          node.parent === subcategory.id &&
+          wineMatches(node, wine)
+      ),
+    }))
+    .filter((group) => group.aromas.length > 0);
+
+  const directAromas = aromaNodes.filter(
+    (node) =>
+      node.type === "aroma" &&
+      node.parent === categoryId &&
+      wineMatches(node, wine)
+  );
+
+  if (category && directAromas.length > 0) {
+    groups.push({ subcategory: category, aromas: directAromas });
+  }
+
+  return groups;
+};
+
 // --- Helper ---
 export const getAromasByCategory = (
   categoryId: string,
   wine?: WineType
-): AromaNode[] => {
-  const subcategories = aromaNodes.filter(
-    (node) => node.parent === categoryId && node.type === "subcategory"
-  );
-  const subcategoryIds = new Set(subcategories.map((node) => node.id));
-
-  return aromaNodes.filter((node) => {
-    if (
-      node.type !== "aroma" ||
-      !node.parent ||
-      (node.parent !== categoryId && !subcategoryIds.has(node.parent))
-    ) {
-      return false;
-    }
-
-    return wine ? node.wines?.includes(wine) ?? false : true;
-  });
-};
+): AromaNode[] =>
+  getAromaGroupsByCategory(categoryId, wine).flatMap((group) => group.aromas);
