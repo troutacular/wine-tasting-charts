@@ -44,7 +44,10 @@ export const aromaNodes: AromaNode[] = [
   // --- Subcategories ---
 
   // --- Primary
+
   // --- Floral is just one root category
+  // --- Spice: Primary is just one root category
+
   { id: "green-fruit", name: "Green Fruit", type: "subcategory", parent: "fruity" },
   { id: "citrus", name: "Citrus", type: "subcategory", parent: "fruity" },
   { id: "stone-fruit", name: "Stone Fruit", type: "subcategory", parent: "fruity" },
@@ -56,14 +59,13 @@ export const aromaNodes: AromaNode[] = [
 
   { id: "sweet-primary", name: "Sweet: Primary", type: "subcategory", parent: "sweet" },
 
-  // Spice: Primary is just one root category
-
   { id: "resinous-herbs", name: "Resinous Herbs", type: "subcategory", parent: "herbaceous" },
   { id: "herbs", name: "Herbs", type: "subcategory", parent: "herbaceous" },
   { id: "grassy", name: "Grassy", type: "subcategory", parent: "herbaceous" },
   { id: "fresh-greens", name: "Fresh Green", type: "subcategory", parent: "herbaceous" },
 
   // -- Secondary
+
   // Yeast is just one root category
   // Malolactic is just one root category
   // Spice: Secondary is just one root category
@@ -77,15 +79,16 @@ export const aromaNodes: AromaNode[] = [
   { id: "burnt", name: "Burnt", type: "subcategory", parent: "toasty" },
 
   // -- Tertiary
+
   // Tobacco is just one root category
   // Umami is just one root category
+  // Dried Fruit is just one root category
+
   { id: "tea", name: "Tea", type: "subcategory", parent: "toasty" },
   { id: "pungent", name: "Pungent", type: "subcategory", parent: "other" },
   { id: "chemical", name: "Chemical", type: "subcategory", parent: "other" },
   { id: "sulfur", name: "Sulfur", type: "subcategory", parent: "other" },
   { id: "cork-taint", name: "Cork Taint", type: "subcategory", parent: "other" },
-
-  // Dried Fruit is just one root category
 
   { id: "earthy-earthy", name: "Earthy", type: "subcategory", parent: "earthy" },
   { id: "soil", name: "Soil", type: "subcategory", parent: "earthy" },
