@@ -12,6 +12,7 @@ interface TastingDetails {
   date: string;
   wineName: string;
   country: string;
+  region: string;
   price: string;
 }
 
@@ -28,6 +29,7 @@ const createDefaultTastingDetails = (): TastingDetails => ({
   date: getToday(),
   wineName: "",
   country: "",
+  region: "",
   price: "",
 });
 
@@ -166,7 +168,7 @@ export default function App() {
         </h1>
 
         <Card title="Wine Details">
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             <label className="form-control">
               <span className="label-text mb-1">Date</span>
               <input
@@ -205,6 +207,17 @@ export default function App() {
                   </option>
                 ))}
               </select>
+            </label>
+            <label className="form-control">
+              <span className="label-text mb-1">Region</span>
+              <input
+                type="text"
+                className="input input-bordered w-full"
+                value={tastingDetails.region}
+                onChange={(event) =>
+                  updateTastingDetails("region", event.target.value)
+                }
+              />
             </label>
             <label className="form-control">
               <span className="label-text mb-1">Price</span>
