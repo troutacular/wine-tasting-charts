@@ -4,7 +4,7 @@ import AromaSection from "./components/AromaSection";
 import Card from "./components/Card";
 import Slider from "./components/Slider";
 import { aromaCategories, getAromaGroupsByCategory } from "./data/aromas";
-import type { AromaTier, WineType } from "./data/aromas";
+import type { AromaGroup, AromaTier, WineType } from "./data/aromas";
 
 const STORAGE_KEY = "wine-app-state";
 
@@ -95,6 +95,22 @@ const aromaTierSections: { id: AromaTier; title: string }[] = [
   { id: "tertiary", title: "Tertiary" },
 ];
 
+const filterAromaGroupsByWset = (
+  groups: AromaGroup[],
+  wsetOnly: boolean
+): AromaGroup[] => {
+  if (!wsetOnly) {
+    return groups;
+  }
+
+  return groups
+    .map((group) => ({
+      ...group,
+      aromas: group.aromas.filter((aroma) => aroma.wset === true),
+    }))
+    .filter((group) => group.aromas.length > 0);
+};
+
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [selectedWine, setSelectedWine] = useState<WineType | null>(null);
@@ -105,6 +121,7 @@ export default function App() {
   const [appearance, setAppearance] = useState<Record<string, number>>({});
   const [palate, setPalate] = useState<Record<string, number>>({});
   const [conclusion, setConclusion] = useState<Record<string, number>>({});
+  const [wsetOnly, setWsetOnly] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -119,6 +136,7 @@ export default function App() {
       setAppearance(parsed.appearance || {});
       setPalate(parsed.palate || {});
       setConclusion(parsed.conclusion || {});
+      setWsetOnly(parsed.wsetOnly || false);
     }
   }, []);
 
@@ -132,9 +150,18 @@ export default function App() {
         appearance,
         palate,
         conclusion,
+        wsetOnly,
       })
     );
-  }, [selectedWine, tastingDetails, checked, appearance, palate, conclusion]);
+  }, [
+    selectedWine,
+    tastingDetails,
+    checked,
+    appearance,
+    palate,
+    conclusion,
+    wsetOnly,
+  ]);
 
   const updateTastingDetails = <Key extends keyof TastingDetails>(
     key: Key,
@@ -155,6 +182,7 @@ export default function App() {
     setAppearance({});
     setPalate({});
     setConclusion({});
+    setWsetOnly(false);
   };
 
   const printPDF = () => window.print();
@@ -268,6 +296,15 @@ export default function App() {
         </Card>
 
         <Card title="Aroma / Flavor">
+          <label key={"wset-only"} className="mt-2 mb-10 flex items-center gap-2">
+            <input
+              type="checkbox"
+              className="wset-checkbox checkbox"
+              checked={wsetOnly}
+              onChange={(event) => setWsetOnly(event.target.checked)}
+            />
+            {"WSET L2 Options Only"}
+          </label>
           <div className="space-y-6">
             {aromaTierSections.map((tier) => {
               const tierCategories = aromaCategories.filter(
@@ -277,18 +314,29 @@ export default function App() {
               return (
                 <section key={tier.id} className="space-y-4">
                   <h3 className="text-lg font-semibold">{tier.title}</h3>
-                  {tierCategories.map((category) => (
-                    <AromaSection
-                      key={category.id}
-                      title={category.name}
-                      groups={getAromaGroupsByCategory(
+                  {tierCategories.map((category) => {
+                    const groups = filterAromaGroupsByWset(
+                      getAromaGroupsByCategory(
                         category.id,
                         selectedWine || undefined
-                      )}
-                      checked={checked}
-                      toggle={toggle}
-                    />
-                  ))}
+                      ),
+                      wsetOnly
+                    );
+
+                    if (groups.length === 0) {
+                      return null;
+                    }
+
+                    return (
+                      <AromaSection
+                        key={category.id}
+                        title={category.name}
+                        groups={groups}
+                        checked={checked}
+                        toggle={toggle}
+                      />
+                    );
+                  })}
                 </section>
               );
             })}
