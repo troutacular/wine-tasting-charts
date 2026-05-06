@@ -248,7 +248,7 @@ export default function App() {
           )}
         </Card>
 
-        <Card title="Nose">
+        <Card title="Aroma / Flavor">
           {aromaCategories.map((category) => (
             <AromaSection
               key={category.id}
@@ -264,7 +264,16 @@ export default function App() {
         </Card>
 
         <Card title="Palate">
-          {["Acid", "Sweetness", "Tannins", "Body", "Alcohol", "Length"].map(
+          <Slider
+            key={"Sweetness"}
+            label={"Sweetness"}
+            min={0}
+            max={3}
+            value={palate["Sweetness"] || 0}
+            labels={["Dry", "Off-Dry", "Medium", "Sweet"]}
+            onChange={(v) => setPalate({ ...palate, ["Sweetness"]: v })}
+          />
+          {["Acid", "Tannins", "Alcohol"].map(
             (m) => (
               <Slider
                 key={m}
@@ -277,6 +286,24 @@ export default function App() {
               />
             )
           )}
+          <Slider
+            key={"Body"}
+            label={"Body"}
+            min={0}
+            max={2}
+            value={palate["Body"] || 0}
+            labels={["Light", "Medium", "Full"]}
+            onChange={(v) => setPalate({ ...palate, ["Body"]: v })}
+          />
+          <Slider
+            key={"Length"}
+            label={"Length"}
+            min={0}
+            max={2}
+            value={palate["Length"] || 0}
+            labels={["Short", "Medium", "Long"]}
+            onChange={(v) => setPalate({ ...palate, ["Length"]: v })}
+          />
         </Card>
 
         <Card title="Conclusions">
