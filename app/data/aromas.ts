@@ -3,11 +3,13 @@
 export type WineType = "red" | "white" | "rose" | "sparkling";
 
 export type NodeType = "category" | "subcategory" | "aroma";
+export type AromaTier = "primary" | "secondary" | "tertiary";
 
 export interface AromaNode {
   id: string;
   name: string;
   type: NodeType;
+  tier?: AromaTier;
   parent?: string;
   wines?: WineType[];
 }
@@ -19,15 +21,15 @@ export interface AromaGroup {
 
 export const aromaNodes: AromaNode[] = [
   // --- Categories ---
-  { id: "floral", name: "Floral", type: "category" },
-  { id: "fruity", name: "Fruity", type: "category" },
-  { id: "sweet", name: "Sweet", type: "category" },
-  { id: "spice", name: "Spice", type: "category" },
-  { id: "nut-cocoa", name: "Nut/Cocoa", type: "category" },
-  { id: "toasty", name: "Toasty", type: "category" },
-  { id: "other", name: "Other", type: "category" },
-  { id: "earthy", name: "Earthy", type: "category" },
-  { id: "herbaceous", name: "Herbaceous", type: "category" },
+  { id: "floral", name: "Floral", type: "category", tier: "primary" },
+  { id: "fruity", name: "Fruity", type: "category", tier: "primary" },
+  { id: "sweet", name: "Sweet", type: "category", tier: "primary" },
+  { id: "spice", name: "Spice", type: "category", tier: "primary" },
+  { id: "herbaceous", name: "Herbaceous", type: "category", tier: "primary" },
+  { id: "nut-cocoa", name: "Nut/Cocoa", type: "category", tier: "secondary" },
+  { id: "toasty", name: "Toasty", type: "category", tier: "secondary" },
+  { id: "other", name: "Other", type: "category", tier: "tertiary" },
+  { id: "earthy", name: "Earthy", type: "category", tier: "tertiary" },
 
   // --- Subcategories ---
 
@@ -49,6 +51,11 @@ export const aromaNodes: AromaNode[] = [
   { id: "botrytis", name: "Botrytis", type: "subcategory", parent: "spice" },
   { id: "pepper", name: "Pepper", type: "subcategory", parent: "spice" },
 
+  { id: "resinous-herbs", name: "Resinous Herbs", type: "subcategory", parent: "herbaceous" },
+  { id: "herbs", name: "Herbs", type: "subcategory", parent: "herbaceous" },
+  { id: "grassy", name: "Grassy", type: "subcategory", parent: "herbaceous" },
+  { id: "fresh-greens", name: "Fresh Green", type: "subcategory", parent: "herbaceous" },
+
   { id: "nutty", name: "Nutty", type: "subcategory", parent: "nut-cocoa" },
   { id: "cocoa", name: "Cocoa", type: "subcategory", parent: "nut-cocoa" },
 
@@ -68,11 +75,6 @@ export const aromaNodes: AromaNode[] = [
   { id: "soil", name: "Soil", type: "subcategory", parent: "earthy" },
   { id: "mineral", name: "Mineral", type: "subcategory", parent: "earthy" },
   { id: "brettanomyces", name: "BRettanomyces", type: "subcategory", parent: "earthy" },
-
-  { id: "resinous-herbs", name: "Resinous Herbs", type: "subcategory", parent: "herbaceous" },
-  { id: "herbs", name: "Herbs", type: "subcategory", parent: "herbaceous" },
-  { id: "grassy", name: "Grassy", type: "subcategory", parent: "herbaceous" },
-  { id: "fresh-greens", name: "Fresh Green", type: "subcategory", parent: "herbaceous" },
 
   // --- Aromoas: sorted
 
@@ -220,6 +222,42 @@ export const aromaNodes: AromaNode[] = [
   { id: "pink-peppercorn", name: "Pink Peppercorn", type: "aroma", parent: "pepper", wines: ["white","sparkling","rose"]},
   { id: "white-pepper", name: "White Pepper", type: "aroma", parent: "pepper", wines: ["red","white","sparkling","rose"]},
 
+  // --- Herbaceous: Resinous Herbs
+  { id: "oregano", name: "Oregano", type: "aroma", parent: "resinous-herbs", wines: ["red","white"]},
+  { id: "pine-needle", name: "Pine Needle", type: "aroma", parent: "resinous-herbs", wines: ["white"]},
+  { id: "rosemary", name: "Rosemary", type: "aroma", parent: "resinous-herbs", wines: ["red","rose"]},
+  { id: "sage", name: "Sage", type: "aroma", parent: "resinous-herbs", wines: ["red","sparkling","rose"]},
+  { id: "thyme", name: "Thyme", type: "aroma", parent: "resinous-herbs", wines: ["sparkling","rose"]},
+  { id: "eucalytpus", name: "Eucalytpus", type: "aroma", parent: "resinous-herbs", wines: ["red"]},
+
+  // --- Herbaceous: Herbs
+  { id: "basil", name: "Basil", type: "aroma", parent: "herbs", wines: ["white"]},
+  { id: "chervil", name: "Chervil", type: "aroma", parent: "herbs", wines: ["white"]},
+  { id: "dill", name: "Dill", type: "aroma", parent: "herbs", wines: ["white"]},
+  { id: "lemon-verbena", name: "Lemon Verbena", type: "aroma", parent: "herbs", wines: ["white"]},
+  { id: "lemongrass", name: "Lemongrass", type: "aroma", parent: "herbs", wines: ["white","sparkling","rose"]},
+  { id: "marjoram", name: "Marjoram", type: "aroma", parent: "herbs", wines: ["red","white","sparkling","rose"]},
+  { id: "menthol", name: "Menthol", type: "aroma", parent: "herbs", wines: ["red","sparkling"]},
+  { id: "mint", name: "Mint", type: "aroma", parent: "herbs", wines: ["red","rose"]},
+  { id: "tarragon", name: "Tarragon", type: "aroma", parent: "herbs", wines: ["white","sparkling","rose"]},
+  { id: "green-peppercorn", name: "Green Peppercorn", type: "aroma", parent: "herbs", wines: ["red"]},
+
+  // --- Herbaceous: Grassy
+  { id: "grass", name: "Grass", type: "aroma", parent: "grassy", wines: ["white","rose"]},
+  { id: "hay", name: "Hay", type: "aroma", parent: "grassy", wines: ["white"]},
+
+  // --- Herbaceous: Fresh Greens
+  { id: "asparagus", name: "Asparagus", type: "aroma", parent: "fresh-greens", wines: ["white"]},
+  { id: "bell-pepper", name: "Bell Pepper", type: "aroma", parent: "fresh-greens", wines: ["red","rose"]},
+  { id: "celery", name: "Celery", type: "aroma", parent: "fresh-greens", wines: ["white","sparkling","rose"]},
+  { id: "cucumber", name: "Cucumber", type: "aroma", parent: "fresh-greens", wines: ["rose"]},
+  { id: "endive", name: "Endive", type: "aroma", parent: "fresh-greens", wines: ["rose"]},
+  { id: "fennel", name: "Fennel", type: "aroma", parent: "fresh-greens", wines: ["white","sparkling","rose"]},
+  { id: "gooseberry", name: "Gooseberry", type: "aroma", parent: "fresh-greens", wines: ["white","sparkling","rose"]},
+  { id: "jalapeño", name: "Jalapeño", type: "aroma", parent: "fresh-greens", wines: ["white"]},
+  { id: "pea-shoot", name: "Pea Shoot", type: "aroma", parent: "fresh-greens", wines: ["white"]},
+  { id: "tomato-leaf", name: "Tomato Leaf", type: "aroma", parent: "fresh-greens", wines: ["red","white","rose"]},
+
   // --- Nut / Cocoa: Nutty
   { id: "almond", name: "Almond", type: "aroma", parent: "nutty", wines: ["white","sparkling","rose"]},
   { id: "brazilnut", name: "Brazilnut", type: "aroma", parent: "nutty", wines: ["white"]},
@@ -313,42 +351,6 @@ export const aromaNodes: AromaNode[] = [
   { id: "black-cardamom", name: "Black Cardamom", type: "aroma", parent: "brettanomyces", wines: ["red"]},
   { id: "sweaty-saddle", name: "Sweaty Saddle", type: "aroma", parent: "brettanomyces", wines: ["red"]},
   { id: "horse-manure", name: "Horse Manure", type: "aroma", parent: "brettanomyces", wines: ["red"]},
-
-  // --- Herbaceous: Resinous Herbs
-  { id: "oregano", name: "Oregano", type: "aroma", parent: "resinous-herbs", wines: ["red","white"]},
-  { id: "pine-needle", name: "Pine Needle", type: "aroma", parent: "resinous-herbs", wines: ["white"]},
-  { id: "rosemary", name: "Rosemary", type: "aroma", parent: "resinous-herbs", wines: ["red","rose"]},
-  { id: "sage", name: "Sage", type: "aroma", parent: "resinous-herbs", wines: ["red","sparkling","rose"]},
-  { id: "thyme", name: "Thyme", type: "aroma", parent: "resinous-herbs", wines: ["sparkling","rose"]},
-  { id: "eucalytpus", name: "Eucalytpus", type: "aroma", parent: "resinous-herbs", wines: ["red"]},
-
-  // --- Herbaceous: Herbs
-  { id: "basil", name: "Basil", type: "aroma", parent: "herbs", wines: ["white"]},
-  { id: "chervil", name: "Chervil", type: "aroma", parent: "herbs", wines: ["white"]},
-  { id: "dill", name: "Dill", type: "aroma", parent: "herbs", wines: ["white"]},
-  { id: "lemon-verbena", name: "Lemon Verbena", type: "aroma", parent: "herbs", wines: ["white"]},
-  { id: "lemongrass", name: "Lemongrass", type: "aroma", parent: "herbs", wines: ["white","sparkling","rose"]},
-  { id: "marjoram", name: "Marjoram", type: "aroma", parent: "herbs", wines: ["red","white","sparkling","rose"]},
-  { id: "menthol", name: "Menthol", type: "aroma", parent: "herbs", wines: ["red","sparkling"]},
-  { id: "mint", name: "Mint", type: "aroma", parent: "herbs", wines: ["red","rose"]},
-  { id: "tarragon", name: "Tarragon", type: "aroma", parent: "herbs", wines: ["white","sparkling","rose"]},
-  { id: "green-peppercorn", name: "Green Peppercorn", type: "aroma", parent: "herbs", wines: ["red"]},
-
-  // --- Herbaceous: Grassy
-  { id: "grass", name: "Grass", type: "aroma", parent: "grassy", wines: ["white","rose"]},
-  { id: "hay", name: "Hay", type: "aroma", parent: "grassy", wines: ["white"]},
-
-  // --- Herbaceous: Fresh Greens
-  { id: "asparagus", name: "Asparagus", type: "aroma", parent: "fresh-greens", wines: ["white"]},
-  { id: "bell-pepper", name: "Bell Pepper", type: "aroma", parent: "fresh-greens", wines: ["red","rose"]},
-  { id: "celery", name: "Celery", type: "aroma", parent: "fresh-greens", wines: ["white","sparkling","rose"]},
-  { id: "cucumber", name: "Cucumber", type: "aroma", parent: "fresh-greens", wines: ["rose"]},
-  { id: "endive", name: "Endive", type: "aroma", parent: "fresh-greens", wines: ["rose"]},
-  { id: "fennel", name: "Fennel", type: "aroma", parent: "fresh-greens", wines: ["white","sparkling","rose"]},
-  { id: "gooseberry", name: "Gooseberry", type: "aroma", parent: "fresh-greens", wines: ["white","sparkling","rose"]},
-  { id: "jalapeño", name: "Jalapeño", type: "aroma", parent: "fresh-greens", wines: ["white"]},
-  { id: "pea-shoot", name: "Pea Shoot", type: "aroma", parent: "fresh-greens", wines: ["white"]},
-  { id: "tomato-leaf", name: "Tomato Leaf", type: "aroma", parent: "fresh-greens", wines: ["red","white","rose"]},
 
 
 ];

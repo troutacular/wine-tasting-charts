@@ -4,7 +4,7 @@ import AromaSection from "./components/AromaSection";
 import Card from "./components/Card";
 import Slider from "./components/Slider";
 import { aromaCategories, getAromaGroupsByCategory } from "./data/aromas";
-import type { WineType } from "./data/aromas";
+import type { AromaTier, WineType } from "./data/aromas";
 
 const STORAGE_KEY = "wine-app-state";
 
@@ -88,6 +88,12 @@ const wineTypeLabels: Record<WineType, string> = {
   sparkling: "Sparkling",
   rose: "Rosé",
 };
+
+const aromaTierSections: { id: AromaTier; title: string }[] = [
+  { id: "primary", title: "Primary" },
+  { id: "secondary", title: "Secondary" },
+  { id: "tertiary", title: "Tertiary" },
+];
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -262,18 +268,31 @@ export default function App() {
         </Card>
 
         <Card title="Aroma / Flavor">
-          {aromaCategories.map((category) => (
-            <AromaSection
-              key={category.id}
-              title={category.name}
-              groups={getAromaGroupsByCategory(
-                category.id,
-                selectedWine || undefined
-              )}
-              checked={checked}
-              toggle={toggle}
-            />
-          ))}
+          <div className="space-y-6">
+            {aromaTierSections.map((tier) => {
+              const tierCategories = aromaCategories.filter(
+                (category) => category.tier === tier.id
+              );
+
+              return (
+                <section key={tier.id} className="space-y-4">
+                  <h3 className="text-lg font-semibold">{tier.title}</h3>
+                  {tierCategories.map((category) => (
+                    <AromaSection
+                      key={category.id}
+                      title={category.name}
+                      groups={getAromaGroupsByCategory(
+                        category.id,
+                        selectedWine || undefined
+                      )}
+                      checked={checked}
+                      toggle={toggle}
+                    />
+                  ))}
+                </section>
+              );
+            })}
+          </div>
         </Card>
 
         <Card title="Palate">
