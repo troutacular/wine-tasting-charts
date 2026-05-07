@@ -330,6 +330,7 @@ export default function App() {
                     return (
                       <AromaSection
                         key={category.id}
+                        categoryId={category.id}
                         title={category.name}
                         groups={groups}
                         checked={checked}
