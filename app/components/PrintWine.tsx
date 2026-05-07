@@ -6,7 +6,7 @@ export default function PrintWine({
   onReset: () => void;
 }) {
   return (
-    <div className="print-hidden flex gap-4">
+    <div className="print-hidden fixed bottom-4 right-4 z-50 flex flex-wrap justify-end gap-3 rounded-box bg-base-100/95 p-3 shadow-lg backdrop-blur">
       <button className="btn btn-primary" onClick={onPrint}>
         Print PDF
       </button>
