@@ -32,7 +32,7 @@ export default function Sidebar({
               }`}
               onClick={() => setSelectedWine(w)}
             >
-              {w}
+              {w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()}
             </button>
           ))}
         </div>
