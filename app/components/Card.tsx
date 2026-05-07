@@ -6,8 +6,8 @@ export default function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="card bg-base-100 p-4 shadow">
-      <h2 className="text-xl font-semibold mb-4">{title}</h2>
+    <div className="card bg-base-100 p-4 shadow section">
+      <h2 className="section-title">{title}</h2>
       {children}
     </div>
   );

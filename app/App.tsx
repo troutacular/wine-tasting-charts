@@ -49,6 +49,7 @@ interface AppearanceField {
   id: string;
   label: string;
   labels: string[];
+  colors: string[];
 }
 
 const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
@@ -57,6 +58,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "red-color",
       label: "Color",
       labels: ["Purple", "Ruby", "Garnet", "Tawny"],
+      colors: ["#941b41", "#601f2d", "#441719", "#621e13"],
     },
   ],
   white: [
@@ -64,6 +66,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "white-color",
       label: "Color",
       labels: ["Lemon-green", "Lemon", "Gold", "Amber", "Brown"],
+      colors: ["#f8f6df", "#f4ed83", "#f3e07a", "#fcb43e", "#c5812c"],
     },
   ],
   sparkling: [
@@ -71,6 +74,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "sparkling-color",
       label: "Color",
       labels: ["Lemon", "Gold", "Amber", "Rosé"],
+      colors: ["#f4ed83", "#f3e07a", "#fcb43e", "#ef868b"],
     },
   ],
   rose: [
@@ -78,6 +82,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "rose-color",
       label: "Color",
       labels: ["Pink", "Salmon", "Orange", "Copper"],
+      colors: ["#f4c4c4", "#f38a75", "#ee8339", "#da5028"],
     },
   ],
 };
@@ -188,7 +193,7 @@ export default function App() {
   const printPDF = () => window.print();
 
   return (
-    <div className="flex min-h-screen bg-base-200">
+    <div className="flex min-h-screen bg-base-200 wine-type" data-wine-type={selectedWine}>
       <Sidebar
         selectedWine={selectedWine}
         setSelectedWine={setSelectedWine}
@@ -197,12 +202,12 @@ export default function App() {
       />
 
       <div className="flex-1 p-6 space-y-6">
-        <h1 className="text-2xl font-bold capitalize">
+        <h1>
           {selectedWine || "Wine Tasting Notes"}
         </h1>
 
         <Card title="Wine Details">
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5 wine-details">
             <label className="form-control">
               <span className="label-text mb-1">Date</span>
               <input
@@ -283,6 +288,7 @@ export default function App() {
                 max={field.labels.length - 1}
                 value={appearance[field.id] || 0}
                 labels={field.labels}
+                colors={field.colors}
                 onChange={(v) =>
                   setAppearance({ ...appearance, [field.id]: v })
                 }
@@ -312,8 +318,8 @@ export default function App() {
               );
 
               return (
-                <section key={tier.id} className="space-y-4">
-                  <h3 className="text-lg font-semibold">{tier.title}</h3>
+                <section key={tier.id} className="aroma-tier space-y-4" data-aroma-tier={tier.title.toLowerCase()}>
+                  <h3 className="aroma-tier-header">{tier.title}</h3>
                   {tierCategories.map((category) => {
                     const groups = filterAromaGroupsByWset(
                       getAromaGroupsByCategory(

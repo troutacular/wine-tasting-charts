@@ -18,9 +18,9 @@ export default function AromaSection({
       className="aroma-section card bg-base-100 p-4 shadow"
       data-aroma-category={categoryId}
     >
-      <h3 className="aroma-category-title text-xl font-semibold capitalize">
+      <h4 className="aroma-category-title">
         {title}
-      </h3>
+      </h4>
       <div className="aroma-groups grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       {groups.map(({ subcategory, aromas }) => (
         <section
@@ -28,9 +28,9 @@ export default function AromaSection({
           className="aroma-subcategory mt-4"
           data-aroma-subcategory={subcategory.id}
         >
-          <h4 className="aroma-subcategory-title mb-2 text-sm font-semibold uppercase tracking-wide text-base-content/70">
+          <h5 className="aroma-subcategory-title">
             {subcategory.name}
-          </h4>
+          </h5>
           <div className="">
             {aromas.map((aroma) => (
               <label key={aroma.id} className="aroma-option flex items-center gap-2 pb-3">

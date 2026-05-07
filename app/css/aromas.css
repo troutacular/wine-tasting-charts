@@ -1,5 +1,39 @@
 /* Aroma category design tokens */
+
+.aroma-tier {
+  @apply p-4;
+  --aroma-tier-bg-color: var(--color-base-100);
+  --aroma-tier-bg-percent: 10%;
+  --aroma-tier-border-color: var(--color-base-content);
+
+  border-radius: 0.375rem;
+  border: 1px solid var(--aroma-tier-border-color);
+  /* background-color: color-mix(
+    in srgb,
+    var(--aroma-tier-bg-color) var(--aroma-tier-bg-percent),
+    transparent
+  ); */
+}
+
+.aroma-tier[data-aroma-tier="primary"] {
+  --aroma-tier-bg-color: #5d9c00;
+  --aroma-tier-border-color: #5d9c00;
+}
+.aroma-tier[data-aroma-tier="secondary"] {
+  --aroma-tier-bg-color: #dccb08;
+  --aroma-tier-border-color: #dccb08;
+}
+.aroma-tier[data-aroma-tier="tertiary"] {
+  --aroma-tier-bg-color: #800080;
+  --aroma-tier-border-color: #a00707;
+}
+
+.aroma-tier-header {}
+
+
+
 .aroma-section {
+  --aroma-section-bg-color: black;
   --aroma-header-color: #64748b;
   --aroma-header-font-color: white;
   --aroma-subcategory-header-bg-color: color-mix(
@@ -14,6 +48,12 @@
     white
   );
   --aroma-subcategory-font-color: var(--color-base-content, #1f2937);
+
+  background-color: color-mix(
+    in srgb,
+    var(--aroma-section-bg-color) 10%,
+    transparent
+  );
 }
 
 .aroma-category-title {

@@ -1,0 +1,334 @@
+/* wine-type category design tokens */
+
+/* Classes added:
+
+.wine-type {}
+.wine-type[data-wine-type="{type}"] {}
+.wine-details {}
+.section {}
+.section-title {}
+
+h1 - text-3xl
+h2 - text-2xl
+h3 - text-xl
+
+
+*/
+.wine-type {
+  --wine-type-header-color: #64748b;
+  --wine-type-header-font-color: white;
+  --wine-type-subcategory-header-bg-color: color-mix(
+    in srgb,
+    var(--wine-type-header-color) 50%,
+    white
+  );
+  --wine-type-subcategory-header-font-color: var(--color-base-content, #1f2937);
+  --wine-type-subcategory-bg-color: color-mix(
+    in srgb,
+    var(--wine-type-header-color) 30%,
+    white
+  );
+  --wine-type-subcategory-font-color: var(--color-base-content, #1f2937);
+}
+
+.wine-type-category-title {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.375rem;
+  background-color: color-mix(
+    in srgb,
+    var(--wine-type-header-color) 100%,
+    white
+  );
+  color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory {
+  --wine-type-subcategory-header-bg-color: color-mix(
+    in srgb,
+    var(--wine-type-header-color) 90%,
+    white
+  );
+  --wine-type-subcategory-header-font-color: var(--color-base-content, #1f2937);
+  --wine-type-subcategory-bg-color: color-mix(
+    in srgb,
+    var(--wine-type-header-color) 70%,
+    white
+  );
+  --wine-type-subcategory-font-color: var(--color-base-content, #1f2937);
+
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--wine-type-subcategory-bg-color);
+  color: var(--wine-type-subcategory-font-color);
+}
+
+.wine-type-checkbox {
+  border-color: var(--wine-type-subcategory-font-color);
+  color: var(--wine-type-subcategory-font-color);
+}
+
+.wine-type-subcategory-title {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: var(--wine-type-subcategory-header-bg-color);
+  color: var(--wine-type-subcategory-header-font-color);
+}
+
+/* Primary: Floral */
+.wine-type-section[data-wine-type-category="floral"] {
+  --wine-type-header-color: #882d94;
+  --wine-type-header-font-color: white;
+}
+
+/* Primary: Fruity */
+.wine-type-section[data-wine-type-category="fruity"] {
+  --wine-type-header-color: #dc2626;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="green-fruit"] {
+  --wine-type-header-color: #568f06;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="citrus"] {
+  --wine-type-header-color: #d56413;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="stone-fruit"] {
+  --wine-type-header-color: #d54608;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="tree-fruit"] {
+  --wine-type-header-color: #5d9c00;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="melon"] {
+  --wine-type-header-color: #16a34a;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="tropical-fruit"] {
+  --wine-type-header-color: #ddff00;
+  --wine-type-header-font-color: rgb(0, 0, 0);
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+  --wine-type-subcategory-font-color: rgb(0, 0, 0);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="red-fruit"] {
+  --wine-type-header-color: #dc2626;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="black-fruit"] {
+  --wine-type-header-color: #581c87;
+  --wine-type-header-font-color: white;
+}
+
+
+
+/* Primary: Spice */
+.wine-type-section[data-wine-type-category="spice-primary"] {
+  --wine-type-header-color: #92400e;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Primary: Herbaceous */
+.wine-type-section[data-wine-type-category="herbaceous"] {
+  --wine-type-header-color: #15803d;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="resinous-herbs"] {
+  --wine-type-header-color: #1d5031;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="herbs"] {
+  --wine-type-header-color: #00a53c;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="grassy"] {
+  --wine-type-header-color: #5a9606;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="fresh-greens"] {
+  --wine-type-header-color: #419b62;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+
+/* Primary: Mineral */
+.wine-type-section[data-wine-type-category="mineral"] {
+  --wine-type-header-color: #64748b;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Primary: Sweet */
+.wine-type-section[data-wine-type-category="sweet"],
+.wine-type-subcategory[data-wine-type-subcategory="sweet"] {
+  --wine-type-header-color: #d8d872;
+  --wine-type-header-font-color: rgb(0, 0, 0);
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+  --wine-type-subcategory-font-color: rgb(0, 0, 0);
+}
+
+
+
+/* Secondary: Yeast */
+.wine-type-section[data-wine-type-category="yeast"],
+.wine-type-subcategory[data-wine-type-subcategory="yeast"] {
+  --wine-type-header-color: #b8a887;
+  --wine-type-header-font-color: rgb(0, 0, 0);
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+  --wine-type-subcategory-font-color: rgb(0, 0, 0);
+}
+
+
+/* Secondary: Malolactic */
+.wine-type-section[data-wine-type-category="malolactic"],
+.wine-type-subcategory[data-wine-type-subcategory="malolactic"] {
+  --wine-type-header-color: #ead812;
+  --wine-type-header-font-color: rgb(0, 0, 0);
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+  --wine-type-subcategory-font-color: rgb(0, 0, 0);
+}
+
+
+/* Secondary: Nut/Cocoa */
+.wine-type-section[data-wine-type-category="nut-cocoa"] {
+  --wine-type-header-color: #78350f;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="cocoa"] {
+  --wine-type-header-color: #78350f;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="nutty"] {
+  --wine-type-header-color: #a16207;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Secondary: Spice */
+.wine-type-section[data-wine-type-category="spice-secondary"] {
+  --wine-type-header-color: #92380e;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="botrytis"] {
+  --wine-type-header-color: #b57b00;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+
+/* Secondary: Toasty */
+.wine-type-section[data-wine-type-category="toasty"] {
+  --wine-type-header-color: #65410e;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="burnt"] {
+  --wine-type-header-color: #44403c;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="tea"] {
+  --wine-type-header-color: #854d0e;
+  --wine-type-header-font-color: white;
+}
+
+
+
+
+/* Tertiary: Earthy */
+.wine-type-section[data-wine-type-category="earthy"] {
+  --wine-type-header-color: #563b1a;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="soil"] {
+  --wine-type-header-color: #3e180c;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="brettanomyces"] {
+  --wine-type-header-color: #4a044e;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Tertiary: Dried Fruit */
+.wine-type-section[data-wine-type-category="dried-fruit"] {
+  --wine-type-header-color: #5c061e;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Tertiary: Caramelized */
+.wine-type-section[data-wine-type-category="caramelized"] {
+  --wine-type-header-color: #b45309;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="caramelized"] {
+  --wine-type-header-color: #b45309;
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+}
+
+
+/* Tertiary: Tobacco */
+.wine-type-section[data-wine-type-category="tobacco"] {
+  --wine-type-header-color: #854d0e;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Tertiary: Umami */
+.wine-type-section[data-wine-type-category="umami"] {
+  --wine-type-header-color: #5b3f20;
+  --wine-type-header-font-color: white;
+}
+
+
+/* Tertiary: Other */
+.wine-type-section[data-wine-type-category="other"] {
+  --wine-type-header-color: #20549d;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="pungent"] {
+  --wine-type-header-color: #7e22ce;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="chemical"] {
+  --wine-type-header-color: #2563eb;
+  --wine-type-header-font-color: white;
+}
+
+.wine-type-section[data-wine-type-category="sulfur"],
+.wine-type-subcategory[data-wine-type-subcategory="sulfur"] {
+  --wine-type-header-color: #eab308;
+  --wine-type-header-font-color: rgb(0, 0, 0);
+  --wine-type-subcategory-header-font-color: var(--wine-type-header-font-color);
+  --wine-type-subcategory-font-color: rgb(0, 0, 0);
+}
+
+.wine-type-subcategory[data-wine-type-subcategory="cork-taint"] {
+  --wine-type-header-color: #7b6a26;
+  --wine-type-header-font-color: white;
+}

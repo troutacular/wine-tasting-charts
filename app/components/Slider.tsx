@@ -4,6 +4,7 @@ export default function Slider({
   min,
   max,
   labels,
+  colors,
   onChange
 }: {
   label: string;
@@ -11,6 +12,7 @@ export default function Slider({
   min: number;
   max: number;
   labels: string[];
+  colors: string[];
   onChange: (v: number) => void;
 }) {
   return (

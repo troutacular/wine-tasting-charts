@@ -23,7 +23,7 @@ export default function Sidebar({
 
       {open && (
         <div className="p-4">
-          <h2 className="font-bold mb-4">Wine Types</h2>
+          <h2 className="mb-4 sidebar-title">Wine Types</h2>
           {wineTypes.map((w) => (
             <button
               key={w}
