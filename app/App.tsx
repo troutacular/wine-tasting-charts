@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "./components/Sidebar";
 import AromaSection from "./components/AromaSection";
 import Card from "./components/Card";
+import PrintWine from "./components/PrintWine";
 import Slider from "./components/Slider";
 import { aromaCategories, getAromaGroupsByCategory } from "./data/aromas";
 import type { AromaGroup, AromaTier, WineType } from "./data/aromas";
@@ -127,25 +128,36 @@ export default function App() {
   const [palate, setPalate] = useState<Record<string, number>>({});
   const [conclusion, setConclusion] = useState<Record<string, number>>({});
   const [wsetOnly, setWsetOnly] = useState(false);
+  const [stateLoaded, setStateLoaded] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      setSelectedWine(parsed.selectedWine);
-      setTastingDetails({
-        ...createDefaultTastingDetails(),
-        ...(parsed.tastingDetails || {}),
-      });
-      setChecked(parsed.checked || {});
-      setAppearance(parsed.appearance || {});
-      setPalate(parsed.palate || {});
-      setConclusion(parsed.conclusion || {});
-      setWsetOnly(parsed.wsetOnly || false);
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setSelectedWine(parsed.selectedWine);
+        setTastingDetails({
+          ...createDefaultTastingDetails(),
+          ...(parsed.tastingDetails || {}),
+        });
+        setChecked(parsed.checked || {});
+        setAppearance(parsed.appearance || {});
+        setPalate(parsed.palate || {});
+        setConclusion(parsed.conclusion || {});
+        setWsetOnly(parsed.wsetOnly || false);
+      }
+    } catch {
+      localStorage.removeItem(STORAGE_KEY);
+    } finally {
+      setStateLoaded(true);
     }
   }, []);
 
   useEffect(() => {
+    if (!stateLoaded) {
+      return;
+    }
+
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({
@@ -166,6 +178,7 @@ export default function App() {
     palate,
     conclusion,
     wsetOnly,
+    stateLoaded,
   ]);
 
   const updateTastingDetails = <Key extends keyof TastingDetails>(
@@ -425,14 +438,7 @@ export default function App() {
           )}
         </Card>
 
-        <div className="print-hidden flex gap-4">
-          <button className="btn btn-primary" onClick={printPDF}>
-            Print PDF
-          </button>
-          <button className="btn btn-error" onClick={reset}>
-            Reset
-          </button>
-        </div>
+        <PrintWine onPrint={printPDF} onReset={reset} />
       </div>
     </div>
   );
