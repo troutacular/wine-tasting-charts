@@ -3,5 +3,6 @@
 @import "./css/typography.css";
 @import "./css/wine-types.css";
 @import "./css/aromas.css";
+@import "./css/slider.css";
 @plugin "../node_modules/daisyui/index.js";
 @source "./**/*.{ts,tsx}";

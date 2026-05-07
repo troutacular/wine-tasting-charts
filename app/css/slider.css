@@ -1,0 +1,56 @@
+.slider-field {
+  --slider-active-color: currentColor;
+}
+
+.slider-range-with-colors {
+  --slider-track-color: color-mix(
+    in srgb,
+    var(--slider-active-color) 100%,
+    white
+  );
+  --range-progress: var(--slider-active-color);
+  --range-bg: var(--slider-track-color);
+  --range-thumb: var(--color-base-100);
+
+  color: var(--slider-active-color);
+  background-color: var(--slider-track-color);
+  background: linear-gradient(
+    to right,
+    var(--slider-active-color) 0%,
+    var(--slider-active-color) var(--slider-progress),
+    var(--slider-track-color) var(--slider-progress),
+    var(--slider-track-color) 100%
+  );
+}
+
+.slider-range-with-colors::-webkit-slider-thumb {
+  background-color: var(--color-base-100);
+  border-color: var(--color-base-content);
+}
+
+.slider-range-with-colors::-moz-range-thumb {
+  background-color: var(--color-base-100);
+  border-color: var(--color-base-content);
+}
+
+.slider-range-with-colors::-moz-range-progress {
+  background-color: var(--slider-active-color);
+}
+
+.slider-range-with-colors::-moz-range-track {
+  background-color: var(--slider-track-color);
+}
+
+.slider-step-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.slider-label-swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  flex: 0 0 auto;
+  border: 1px solid rgb(0 0 0 / 0.18);
+  border-radius: 999px;
+}
