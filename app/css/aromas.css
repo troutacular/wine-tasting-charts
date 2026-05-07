@@ -1,0 +1,318 @@
+/* Aroma category design tokens */
+.aroma-section {
+  --aroma-header-color: #64748b;
+  --aroma-header-font-color: white;
+  --aroma-subcategory-header-bg-color: color-mix(
+    in srgb,
+    var(--aroma-header-color) 50%,
+    white
+  );
+  --aroma-subcategory-header-font-color: var(--color-base-content, #1f2937);
+  --aroma-subcategory-bg-color: color-mix(
+    in srgb,
+    var(--aroma-header-color) 30%,
+    white
+  );
+  --aroma-subcategory-font-color: var(--color-base-content, #1f2937);
+}
+
+.aroma-category-title {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.375rem;
+  background-color: color-mix(
+    in srgb,
+    var(--aroma-header-color) 100%,
+    white
+  );
+  color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory {
+  --aroma-subcategory-header-bg-color: color-mix(
+    in srgb,
+    var(--aroma-header-color) 90%,
+    white
+  );
+  --aroma-subcategory-header-font-color: var(--color-base-content, #1f2937);
+  --aroma-subcategory-bg-color: color-mix(
+    in srgb,
+    var(--aroma-header-color) 70%,
+    white
+  );
+  --aroma-subcategory-font-color: var(--color-base-content, #1f2937);
+
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--aroma-subcategory-bg-color);
+  color: var(--aroma-subcategory-font-color);
+}
+
+.aroma-checkbox {
+  border-color: var(--aroma-subcategory-font-color);
+  color: var(--aroma-subcategory-font-color);
+}
+
+.aroma-subcategory-title {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: var(--aroma-subcategory-header-bg-color);
+  color: var(--aroma-subcategory-header-font-color);
+}
+
+/* Primary: Floral */
+.aroma-section[data-aroma-category="floral"] {
+  --aroma-header-color: #882d94;
+  --aroma-header-font-color: white;
+}
+
+/* Primary: Fruity */
+.aroma-section[data-aroma-category="fruity"] {
+  --aroma-header-color: #dc2626;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="green-fruit"] {
+  --aroma-header-color: #568f06;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="citrus"] {
+  --aroma-header-color: #d56413;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="stone-fruit"] {
+  --aroma-header-color: #d54608;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="tree-fruit"] {
+  --aroma-header-color: #5d9c00;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="melon"] {
+  --aroma-header-color: #16a34a;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="tropical-fruit"] {
+  --aroma-header-color: #ddff00;
+  --aroma-header-font-color: rgb(0, 0, 0);
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+  --aroma-subcategory-font-color: rgb(0, 0, 0);
+}
+
+.aroma-subcategory[data-aroma-subcategory="red-fruit"] {
+  --aroma-header-color: #dc2626;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="black-fruit"] {
+  --aroma-header-color: #581c87;
+  --aroma-header-font-color: white;
+}
+
+
+
+/* Primary: Spice */
+.aroma-section[data-aroma-category="spice-primary"] {
+  --aroma-header-color: #92400e;
+  --aroma-header-font-color: white;
+}
+
+
+/* Primary: Herbaceous */
+.aroma-section[data-aroma-category="herbaceous"] {
+  --aroma-header-color: #15803d;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="resinous-herbs"] {
+  --aroma-header-color: #1d5031;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="herbs"] {
+  --aroma-header-color: #00a53c;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="grassy"] {
+  --aroma-header-color: #5a9606;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+.aroma-subcategory[data-aroma-subcategory="fresh-greens"] {
+  --aroma-header-color: #419b62;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+
+/* Primary: Mineral */
+.aroma-section[data-aroma-category="mineral"] {
+  --aroma-header-color: #64748b;
+  --aroma-header-font-color: white;
+}
+
+
+/* Primary: Sweet */
+.aroma-section[data-aroma-category="sweet"],
+.aroma-subcategory[data-aroma-subcategory="sweet"] {
+  --aroma-header-color: #d8d872;
+  --aroma-header-font-color: rgb(0, 0, 0);
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+  --aroma-subcategory-font-color: rgb(0, 0, 0);
+}
+
+
+
+/* Secondary: Yeast */
+.aroma-section[data-aroma-category="yeast"],
+.aroma-subcategory[data-aroma-subcategory="yeast"] {
+  --aroma-header-color: #b8a887;
+  --aroma-header-font-color: rgb(0, 0, 0);
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+  --aroma-subcategory-font-color: rgb(0, 0, 0);
+}
+
+
+/* Secondary: Malolactic */
+.aroma-section[data-aroma-category="malolactic"],
+.aroma-subcategory[data-aroma-subcategory="malolactic"] {
+  --aroma-header-color: #ead812;
+  --aroma-header-font-color: rgb(0, 0, 0);
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+  --aroma-subcategory-font-color: rgb(0, 0, 0);
+}
+
+
+/* Secondary: Nut/Cocoa */
+.aroma-section[data-aroma-category="nut-cocoa"] {
+  --aroma-header-color: #78350f;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="cocoa"] {
+  --aroma-header-color: #78350f;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="nutty"] {
+  --aroma-header-color: #a16207;
+  --aroma-header-font-color: white;
+}
+
+
+/* Secondary: Spice */
+.aroma-section[data-aroma-category="spice-secondary"] {
+  --aroma-header-color: #92380e;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="botrytis"] {
+  --aroma-header-color: #b57b00;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+
+/* Secondary: Toasty */
+.aroma-section[data-aroma-category="toasty"] {
+  --aroma-header-color: #65410e;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="burnt"] {
+  --aroma-header-color: #44403c;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="tea"] {
+  --aroma-header-color: #854d0e;
+  --aroma-header-font-color: white;
+}
+
+
+
+
+/* Tertiary: Earthy */
+.aroma-section[data-aroma-category="earthy"] {
+  --aroma-header-color: #563b1a;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="soil"] {
+  --aroma-header-color: #3e180c;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="brettanomyces"] {
+  --aroma-header-color: #4a044e;
+  --aroma-header-font-color: white;
+}
+
+
+/* Tertiary: Dried Fruit */
+.aroma-section[data-aroma-category="dried-fruit"] {
+  --aroma-header-color: #5c061e;
+  --aroma-header-font-color: white;
+}
+
+
+/* Tertiary: Caramelized */
+.aroma-section[data-aroma-category="caramelized"] {
+  --aroma-header-color: #b45309;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="caramelized"] {
+  --aroma-header-color: #b45309;
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+}
+
+
+/* Tertiary: Tobacco */
+.aroma-section[data-aroma-category="tobacco"] {
+  --aroma-header-color: #854d0e;
+  --aroma-header-font-color: white;
+}
+
+
+/* Tertiary: Umami */
+.aroma-section[data-aroma-category="umami"] {
+  --aroma-header-color: #5b3f20;
+  --aroma-header-font-color: white;
+}
+
+
+/* Tertiary: Other */
+.aroma-section[data-aroma-category="other"] {
+  --aroma-header-color: #20549d;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="pungent"] {
+  --aroma-header-color: #7e22ce;
+  --aroma-header-font-color: white;
+}
+
+.aroma-subcategory[data-aroma-subcategory="chemical"] {
+  --aroma-header-color: #2563eb;
+  --aroma-header-font-color: white;
+}
+
+.aroma-section[data-aroma-category="sulfur"],
+.aroma-subcategory[data-aroma-subcategory="sulfur"] {
+  --aroma-header-color: #eab308;
+  --aroma-header-font-color: rgb(0, 0, 0);
+  --aroma-subcategory-header-font-color: var(--aroma-header-font-color);
+  --aroma-subcategory-font-color: rgb(0, 0, 0);
+}
+
+.aroma-subcategory[data-aroma-subcategory="cork-taint"] {
+  --aroma-header-color: #7b6a26;
+  --aroma-header-font-color: white;
