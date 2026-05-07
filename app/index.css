@@ -3,6 +3,3 @@
 @import "./css/aromas.css";
 @plugin "../node_modules/daisyui/index.js";
 @source "./**/*.{ts,tsx}";
-
-
-}
