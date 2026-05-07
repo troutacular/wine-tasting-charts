@@ -27,7 +27,7 @@ export const aromaNodes: AromaNode[] = [
   { id: "spice-primary", name: "Spice", type: "category", tier: "primary" },
   { id: "herbaceous", name: "Herbaceous", type: "category", tier: "primary" },
   { id: "mineral", name: "Mineral", type: "category", tier: "primary" },
-  { id: "sweet-primary", name: "Sweet", type: "category", tier: "primary" },
+  { id: "sweet", name: "Sweet", type: "category", tier: "primary" },
 
   { id: "yeast", name: "Yeast", type: "category", tier: "secondary" },
   { id: "malolactic", name: "Malolactic", type: "category", tier: "secondary" },
@@ -37,6 +37,7 @@ export const aromaNodes: AromaNode[] = [
 
   { id: "earthy", name: "Earthy", type: "category", tier: "tertiary" },
   { id: "dried-fruit", name: "Dried Fruit", type: "category", tier: "tertiary" },
+  { id: "caramelized", name: "Caramelized", type: "category", tier: "tertiary" },
   { id: "tobacco", name: "Tobacco", type: "category", tier: "tertiary" },
   { id: "umami", name: "Umami", type: "category", tier: "tertiary" },
   { id: "other", name: "Other", type: "category", tier: "tertiary" },
@@ -57,8 +58,6 @@ export const aromaNodes: AromaNode[] = [
   { id: "red-fruit", name: "Red Fruit", type: "subcategory", parent: "fruity" },
   { id: "black-fruit", name: "Black Fruit", type: "subcategory", parent: "fruity" },
 
-  { id: "sweet-primary", name: "Sweet: Primary", type: "subcategory", parent: "sweet" },
-
   { id: "resinous-herbs", name: "Resinous Herbs", type: "subcategory", parent: "herbaceous" },
   { id: "herbs", name: "Herbs", type: "subcategory", parent: "herbaceous" },
   { id: "grassy", name: "Grassy", type: "subcategory", parent: "herbaceous" },
@@ -70,7 +69,6 @@ export const aromaNodes: AromaNode[] = [
   // Malolactic is just one root category
   // Spice: Secondary is just one root category
 
-  { id: "caramelized", name: "Caramelized", type: "subcategory", parent: "sweet" },
   { id: "botrytis", name: "Botrytis", type: "subcategory", parent: "spice-secondary" },
 
   { id: "cocoa", name: "Cocoa", type: "subcategory", parent: "nut-cocoa" },
@@ -90,9 +88,8 @@ export const aromaNodes: AromaNode[] = [
   { id: "sulfur", name: "Sulfur", type: "subcategory", parent: "other" },
   { id: "cork-taint", name: "Cork Taint", type: "subcategory", parent: "other" },
 
-  { id: "earthy-earthy", name: "Earthy", type: "subcategory", parent: "earthy" },
   { id: "soil", name: "Soil", type: "subcategory", parent: "earthy" },
-  { id: "brettanomyces", name: "BRettanomyces", type: "subcategory", parent: "earthy" },
+  { id: "brettanomyces", name: "Brettanomyces", type: "subcategory", parent: "earthy" },
 
   // --- Aromoas: sorted
 
@@ -244,12 +241,12 @@ export const aromaNodes: AromaNode[] = [
   { id: "tomato-leaf", name: "Tomato Leaf", type: "aroma", parent: "fresh-greens", wines: ["red","white","rose"], wset: true },
 
     // --- Primary: Sweet: Sweet
-  { id: "beeswax", name: "Beeswax", type: "aroma", parent: "sweet-primary", wines: ["white","sparkling","rose"] },
-  { id: "bubblegum", name: "Bubblegum", type: "aroma", parent: "sweet-primary", wines: ["red"] },
-  { id: "lager", name: "Lager", type: "aroma", parent: "sweet-primary", wines: ["white","sparkling","rose"] },
-  { id: "sour-cream", name: "Sour Cream", type: "aroma", parent: "sweet-primary", wines: ["sparkling","rose"] },
+  { id: "beeswax", name: "Beeswax", type: "aroma", parent: "sweet", wines: ["white","sparkling","rose"] },
+  { id: "bubblegum", name: "Bubblegum", type: "aroma", parent: "sweet", wines: ["red"] },
+  { id: "lager", name: "Lager", type: "aroma", parent: "sweet", wines: ["white","sparkling","rose"] },
+  { id: "sour-cream", name: "Sour Cream", type: "aroma", parent: "sweet", wines: ["sparkling","rose"] },
 
-  // --- Primary: Earthy: Mineral
+  // --- Primary: Mineral
   { id: "crushed-gravel", name: "Crushed Gravel", type: "aroma", parent: "mineral", wines: ["red","white","sparkling","rose"] },
   { id: "graphite", name: "Graphite", type: "aroma", parent: "mineral", wines: ["red"] },
   { id: "petrichor", name: "Petrichor", type: "aroma", parent: "mineral", wines: ["red"] },
