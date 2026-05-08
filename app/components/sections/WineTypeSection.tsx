@@ -18,7 +18,7 @@ export default function WineTypeSection({
         {wineTypes.map((wineType) => (
           <label
             key={wineType}
-            className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-md border px-4 py-3 transition-colors hover:border-accent ${
+            className={`wine-type-radio-label flex min-h-12 cursor-pointer items-center gap-3 rounded-md border px-4 py-3 transition-colors hover:border-accent ${
               selectedWine === wineType
                 ? "border-accent bg-accent/10"
                 : "border-base-300 bg-base-100"

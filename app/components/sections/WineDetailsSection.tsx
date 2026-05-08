@@ -14,7 +14,7 @@ export default function WineDetailsSection({
   onChange,
 }: WineDetailsSectionProps) {
   return (
-    <Card title="Wine Details">
+    <Card title="Wine Details" classes="wine-details">
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5 wine-details">
         <label className="form-control">
           <span className="label-text mb-1">Date</span>

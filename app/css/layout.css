@@ -1,0 +1,25 @@
+/* .section,
+.section .wine-type-radio-label {
+  --layout-section-bg-color: var(--color-base-100);
+  --layout-section-bg-color-percent: 65%;
+  background-color: color-mix(
+    in srgb,
+    var(--layout-section-bg-color) var(--layout-section-bg-color-percent),
+    transparent
+  );
+}
+
+.wine-details input,
+.wine-details select,
+.wine-details select option {
+  --layout-section-bg-color-percent: 65%;
+  background-color: color-mix(
+    in srgb,
+    var(--layout-section-bg-color) var(--layout-section-bg-color-percent),
+    transparent
+  );
+}
+
+.wine-details select option {
+  --layout-section-bg-color-percent: 100%;
+} */

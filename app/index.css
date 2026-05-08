@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./css/print.css";
+@import "./css/layout.css";
 @import "./css/typography.css";
 @import "./css/wine-types.css";
 @import "./css/aromas.css";
