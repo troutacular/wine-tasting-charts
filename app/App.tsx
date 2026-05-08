@@ -201,7 +201,15 @@ export default function App() {
     setPalate({});
     setConclusion({});
     setWsetOnly(false);
+    scrollToTop();
   };
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Adds an animated transition
+  });
+};
 
   const printPDF = () => window.print();
 
@@ -215,7 +223,7 @@ export default function App() {
       />
 
       <div className="flex-1 p-6 space-y-6">
-        <h1>
+        <h1 className="app-title">
           {selectedWine || "Wine Tasting Notes"}
         </h1>
 
