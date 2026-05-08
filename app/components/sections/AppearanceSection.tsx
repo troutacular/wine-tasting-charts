@@ -16,7 +16,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "red-color",
       label: "Color",
       labels: ["Purple", "Ruby", "Garnet", "Tawny"],
-      colors: ["#941b41", "#601f2d", "#441719", "#621e13"],
+      colors: ["#89173c", "#681d2d", "#511617", "#621e13"],
     },
   ],
   white: [
