@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Red wine glass</title>
+  <rect width="64" height="64" rx="14" fill="#fff7f2" />
+  <path
+    d="M21 8h22l-2 21c-.6 6.3-4.6 10.8-9 10.8S23.6 35.3 23 29L21 8Z"
+    fill="#ffffff"
+    stroke="#5a101c"
+    stroke-linejoin="round"
+    stroke-width="3.2"
+  />
+  <path
+    d="M24.1 22.2h15.8l-.6 6.5c-.5 4.9-3.5 8.2-7.3 8.2s-6.8-3.3-7.3-8.2l-.6-6.5Z"
+    fill="#8f1730"
+  />
+  <path
+    d="M24.1 22.2h15.8l-.2 2.4c-2.2-1.1-4.6-1.2-7.2-.2-2.7 1-5.4.8-8.1-.8l-.3-1.4Z"
+    fill="#c53b52"
+  />
+  <path
+    d="M32 40v13M23 56h18"
+    fill="none"
+    stroke="#5a101c"
+    stroke-linecap="round"
+    stroke-width="3.2"
+  />
+</svg>

@@ -6,8 +6,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import type { LinksFunction } from "react-router";
 
+import faviconHref from "./assets/favicon.svg?url";
 import "./index.css";
+
+export const links: LinksFunction = () => [
+  { rel: "icon", type: "image/svg+xml", href: faviconHref },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
