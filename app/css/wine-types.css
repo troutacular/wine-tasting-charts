@@ -30,12 +30,14 @@ h3 - text-xl
 }
 .wine-type[data-wine-type="white"] {
   --wine-type-bg-color: #f8f6df;
+  --wine-type-bg-color: #f2df78;
 }
 .wine-type[data-wine-type="white"] h1 {
   --wine-type-title-color: var(--color-base-200);
 }
 .wine-type[data-wine-type="sparkling"] {
   --wine-type-bg-color: #f4ed83;
+  --wine-type-bg-color: #eeeccb;
 }
 .wine-type[data-wine-type="sparkling"] h1 {
   --wine-type-title-color: var(--color-base-200);

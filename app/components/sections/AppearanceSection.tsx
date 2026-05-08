@@ -24,7 +24,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "white-color",
       label: "Color",
       labels: ["Lemon-green", "Lemon", "Gold", "Amber", "Brown"],
-      colors: ["#f8f6df", "#f4ed83", "#f3e07a", "#fcb43e", "#c5812c"],
+      colors: ["#DAF278", "#f5ee7e", "#f2df78", "#fcb43e", "#c5812c"],
     },
   ],
   sparkling: [
@@ -32,7 +32,7 @@ const appearanceFieldsByWine: Record<WineType, AppearanceField[]> = {
       id: "sparkling-color",
       label: "Color",
       labels: ["Lemon", "Gold", "Amber", "Rosé"],
-      colors: ["#f4ed83", "#f3e07a", "#fcb43e", "#ef868b"],
+      colors: ["#f5ee7e", "#f2df78", "#fcb43e", "#ef868b"],
     },
   ],
   rose: [
