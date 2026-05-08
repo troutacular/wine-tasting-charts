@@ -1,40 +1,60 @@
-# Welcome to React Router!
+# Wine Tasting Charts
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A React tasting worksheet for recording wine details, appearance, aroma/flavor notes, palate, conclusions, and drinkability. The app is designed for quick in-browser tasting notes with printable output.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Usage
 
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The local URL is usually `http://localhost:5173/wine-tasting-charts/`. If that port is already busy, Vite will choose the next available port and print the URL in the terminal.
 
-## Building for Production
+In the app:
+
+- Fill in the wine details section.
+- Choose a wine type to reveal matching appearance options and filter aroma suggestions.
+- Toggle `WSET L2 Options Only` to narrow aroma/flavor choices to WSET-marked entries.
+- Use sliders for appearance, palate, conclusions, and drinkability.
+- Use `Print PDF` for a printable tasting sheet.
+- Use `Reset` to clear the current tasting and return to the top of the page.
+
+## State Storage
+
+The tasting form stores its current state in browser `localStorage` under the key `wine-app-state`.
+
+Persisted fields include:
+
+- selected wine type
+- wine details: date, wine name, country, region, price
+- selected aroma/flavor checkboxes
+- appearance slider values
+- palate slider values
+- conclusion and drinkability slider values
+- `WSET L2 Options Only` toggle state
+
+State is restored automatically when the app loads in the same browser. The default date is recalculated only when creating a new blank tasting or when missing from older saved data.
+
+The `Reset` button removes `wine-app-state` from `localStorage` and clears the in-memory form state. Clearing browser site data will also remove saved tasting progress.
+
+## Project Structure
+
+- `app/App.tsx` composes the main worksheet sections.
+- `app/hooks/useTastingForm.ts` owns form state, localStorage hydration, persistence, and reset behavior.
+- `app/data/tasting.ts` contains shared tasting options, labels, defaults, and the storage key.
+- `app/data/aromas.ts` contains aroma/flavor data and wine-type filtering metadata.
+- `app/components/sections/` contains the card-level worksheet sections.
+- `app/components/` contains shared UI pieces such as `Card`, `Slider`, `AromaSection`, and `PrintWine`.
+
+## Build
 
 Create a production build:
 
@@ -42,46 +62,14 @@ Create a production build:
 npm run build
 ```
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
+Run TypeScript and React Router type generation:
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+npm run typecheck
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+Deploy to GitHub Pages:
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
+```bash
+npm run deploy
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
