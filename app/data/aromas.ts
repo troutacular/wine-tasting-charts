@@ -192,7 +192,7 @@ export const aromaNodes: AromaNode[] = [
   { id: "currant-black", name: "Currant: Black", type: "aroma", parent: "black-fruit", wines: ["red","rose"], wset: true },
   { id: "olive-black", name: "Olive: Black", type: "aroma", parent: "black-fruit", wines: ["red"] },
   { id: "plum", name: "Plum", type: "aroma", parent: "black-fruit", wines: ["sparkling"], wset: true },
-  { id: "plum-black", name: "Plum: Black", type: "aroma", parent: "red-fruit", wines: ["red"], wset: true },
+  { id: "plum-black", name: "Plum: Black", type: "aroma", parent: "black-fruit", wines: ["red"], wset: true },
 
   // --- Primary: Spice: Pepper
   { id: "chili-pepper", name: "Chili Pepper", type: "aroma", parent: "spice-primary", wines: ["red","rose"] },
