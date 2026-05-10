@@ -4,11 +4,11 @@ export default function Card({
   children
 }: {
   title: string;
-  classes: string;
+  classes?: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className={`card bg-base-100 p-4 shadow section ${classes}`}>
+    <div className={`card bg-base-100 p-4 shadow section ${classes || ""}`}>
       <h2 className="section-title">{title}</h2>
       {children}
     </div>
