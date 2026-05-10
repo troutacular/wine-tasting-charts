@@ -12,6 +12,7 @@
     @apply text-lg font-semibold capitalize mb-4;
   }
   h5 {
-    @apply text-sm font-semibold uppercase tracking-wide text-base-content/70 mb-4;
+    @apply text-sm font-semibold uppercase tracking-wide mb-4;
+    color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
   }
 }
